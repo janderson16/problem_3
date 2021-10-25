@@ -1,0 +1,9 @@
+<h1>My Reviews</h1>
+<% unless @user.reviews.empty? %>
+    <% @user.reviews.each do |review| %>
+    <%= review.title %>
+    <%= sanitize review.content %>
+    <% end %>
+<% else %>
+    <p>You don't have any reviews</p>
+<% end %>

@@ -1,0 +1,12 @@
+<%= @book.title %>
+<%= @book.author %>
+<% unless @book.reviews.empty? %>
+    <% @reviews.each do |review| %>
+        <%= review.title %>
+        <%= sanitize review.content %>
+        by <%= review.user.full_name %>
+    <% end %>
+    <%= link_to "Next page", book_path(@book, params: {review_page: @page + 1}) %>
+<% else %>
+    <p>This book has no reviews yet.</p>
+<% end %>
